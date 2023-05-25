@@ -10,7 +10,12 @@ public class Game : MonoBehaviour
     public int enemieCount = 32;
     private Board board;
     private bool gameOver;
-
+    private float distanceToPlayer;
+    public float revealDistance=5f;
+    private Vector3 playerPosition;
+    private GameObject player;
+    private Camera cam;
+    public List <GameObject> listEnemies;
     private Cells[,] state; //Esta es una matriz de objetos "Cells" y representa el estado actual de las celdas en el juego
 
     //awake se ejecuta antes del primer frame al iniciar el juego, es útil para inicializar componentes como rigidbody, colliders ia, 
@@ -25,6 +30,7 @@ public class Game : MonoBehaviour
         //Esta cosa obtiene la referencia al script "Board" mediante el método "GetComponentInChildren". porque el script pertenece a el hijo 
         // Del Objeto que tiene el tilemap, por eso es el hijo
         board = GetComponentInChildren<Board>();
+        player = GameObject.FindWithTag("Player");
 
     }
 
@@ -32,6 +38,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
         NewGame();
     }
 
@@ -183,10 +190,14 @@ public class Game : MonoBehaviour
     private void Reveal()
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        print(worldPosition);
         Vector3Int cellPosition = board.tilemap.WorldToCell(worldPosition);
         Cells cell = GetCell(cellPosition.x, cellPosition.y);
+        playerPosition = player.transform.position;
+        distanceToPlayer = Vector3.Distance(playerPosition, cell.position );
+        //|| distanceToPlayer > revealDistance
 
-        if (cell.type == Cells.Type.Invalid || cell.revealed)
+        if (cell.type == Cells.Type.Invalid || cell.revealed  )
         {
             return;
         }
@@ -194,6 +205,8 @@ public class Game : MonoBehaviour
         {
             case Cells.Type.Enemy:
                 Explode(cell);
+                var enemyPre = RandomEnemy();
+                Instantiate(enemyPre, cell.position + new Vector3(0.5f,0.5f,0), enemyPre.transform.rotation) ;
                 break;
 
             case Cells.Type.Empty:
@@ -280,6 +293,12 @@ public class Game : MonoBehaviour
         
         
     
+    }
+    private GameObject RandomEnemy()
+    {
+
+        int randomIndex = Random.Range(0, listEnemies.Count);
+        return listEnemies[randomIndex];
     }
 
   

@@ -17,6 +17,7 @@ public class Board : MonoBehaviour
     public Tile tileNum2;
     public Tile tileNum3;
     public Tile time;
+ 
 
 
 
@@ -40,7 +41,7 @@ public class Board : MonoBehaviour
                 Cells cell = state[x, y];
                 tilemap.SetTile(cell.position, GetTile(cell));
                     
-                }
+            }
         }
     
     }
