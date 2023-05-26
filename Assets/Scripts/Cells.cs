@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Este script define una estructura llamada "Cells" que representa una celda en el juego 
-public struct Cells 
+public struct Cells
 {
-    public enum Type {
+    public enum Type
+    {
 
         //Esta es una enumeración llamada "Type" que define diferentes tipos de celdas posibles que pueden aparecer en el juego
 
@@ -14,7 +15,7 @@ public struct Cells
         Enemy,
         Number,
         Time,
-        
+
     }
 
     public Type type; //Esta es una variable pública de tipo "Type" que representa el tipo de la celda.

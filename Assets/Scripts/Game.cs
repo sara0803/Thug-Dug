@@ -11,11 +11,11 @@ public class Game : MonoBehaviour
     private Board board;
     private bool gameOver;
     private float distanceToPlayer;
-    public float revealDistance=5f;
+    public float revealDistance = 5f;
     private Vector3 playerPosition;
     private GameObject player;
     private Camera cam;
-    public List <GameObject> listEnemies;
+    public List<GameObject> listEnemies;
     private Cells[,] state; //Esta es una matriz de objetos "Cells" y representa el estado actual de las celdas en el juego
 
     //awake se ejecuta antes del primer frame al iniciar el juego, es útil para inicializar componentes como rigidbody, colliders ia, 
@@ -179,13 +179,13 @@ public class Game : MonoBehaviour
                 Reveal();
             }
         }
-       
+
     }
     // Se usa para revelar una celda en el tablero.
     // Obtiene la posición del mouse en el mundo y la convierte en una posición de celda utilizando el componente "Tilemap" del tablero.
     // Luego, obtiene la celda correspondiente a esa posición utilizando el método "GetCell".
     // Si la celda es inválida o ya está revelada, no hace nada. Dependiendo del tipo de celda, se realizan diferentes acciones,
- // como explotar descubrir un enemigp, revelar celdas vacías adyacentes o simplemente revelar una celda de color que da pistas sobre cuantos enemigos van a haber.
+    // como explotar descubrir un enemigp, revelar celdas vacías adyacentes o simplemente revelar una celda de color que da pistas sobre cuantos enemigos van a haber.
     // Al final, se actualiza el estado de la celda y se llama al método "Draw" del componente "Board" para actualizar la representación visual del tablero.
     private void Reveal()
     {
@@ -194,10 +194,10 @@ public class Game : MonoBehaviour
         Vector3Int cellPosition = board.tilemap.WorldToCell(worldPosition);
         Cells cell = GetCell(cellPosition.x, cellPosition.y);
         playerPosition = player.transform.position;
-        distanceToPlayer = Vector3.Distance(playerPosition, cell.position );
+        distanceToPlayer = Vector3.Distance(playerPosition, cell.position);
         //|| distanceToPlayer > revealDistance
 
-        if (cell.type == Cells.Type.Invalid || cell.revealed  )
+        if (cell.type == Cells.Type.Invalid || cell.revealed)
         {
             return;
         }
@@ -206,12 +206,12 @@ public class Game : MonoBehaviour
             case Cells.Type.Enemy:
                 Explode(cell);
                 var enemyPre = RandomEnemy();
-                Instantiate(enemyPre, cell.position + new Vector3(0.5f,0.5f,0), enemyPre.transform.rotation) ;
+                Instantiate(enemyPre, cell.position + new Vector3(0.5f, 0.5f, 0), enemyPre.transform.rotation);
                 break;
 
             case Cells.Type.Empty:
                 Flood(cell);
-               // CheckWinCondition();
+                // CheckWinCondition();
                 break;
 
             default:
@@ -240,10 +240,10 @@ public class Game : MonoBehaviour
 
         if (cell.type == Cells.Type.Empty)
         {
-            Flood(GetCell(cell.position.x -1, cell.position.y));
+            Flood(GetCell(cell.position.x - 1, cell.position.y));
             Flood(GetCell(cell.position.x + 1, cell.position.y));
-            Flood(GetCell(cell.position.x , cell.position.y-1));
-            Flood(GetCell(cell.position.x , cell.position.y+1));
+            Flood(GetCell(cell.position.x, cell.position.y - 1));
+            Flood(GetCell(cell.position.x, cell.position.y + 1));
         }
     }
 
@@ -261,7 +261,7 @@ public class Game : MonoBehaviour
         {
             return new Cells();
         }
-    
+
     }
 
     //Este método privado se utiliza para verificar si las coordenadas dadas son válidas dentro de los límites del tablero. Para lo de arriba justo
@@ -273,26 +273,26 @@ public class Game : MonoBehaviour
     //Para ver si la celda explotó
     private void Explode(Cells cell)
     {
-       
+
 
         cell.revealed = true;
         cell.exploted = true;
-        
+
     }
 
     //Este método se utiliza para verificar si se el jugador ha ganado.
-     //Pero, está incompleto por ahora...
+    //Pero, está incompleto por ahora...
     private void checkWinCondition()
     {
-        
-            
-                // -----COMPLETAR ESTO DESPUÉS------
-                //SI EL JUGADOR TIENE LIFE>0 Y HA RECOLECTADO TODOS LOS ITEMS WIN=TRUE
-                //GAME OVER==TRUE;
-            
-        
-        
-    
+
+
+        // -----COMPLETAR ESTO DESPUÉS------
+        //SI EL JUGADOR TIENE LIFE>0 Y HA RECOLECTADO TODOS LOS ITEMS WIN=TRUE
+        //GAME OVER==TRUE;
+
+
+
+
     }
     private GameObject RandomEnemy()
     {
@@ -301,5 +301,5 @@ public class Game : MonoBehaviour
         return listEnemies[randomIndex];
     }
 
-  
+
 }
