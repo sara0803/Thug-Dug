@@ -5,12 +5,19 @@ using UnityEngine;
 //Este script controla la lógica principal del juego
 public class Game : MonoBehaviour
 {
-    public int width = 16;
-    public int height = 16;
-    public int enemieCount = 32;
+    public int width ;
+    public int height ;
+    public int enemieCount ;
     private Board board;
     private bool gameOver;
-
+    private float distanceToPlayer;
+    public float revealDistance=5f;
+    private Vector3 playerPosition;
+    public GameObject player;
+    private Camera cam;
+    public List <GameObject> listEnemies;
+    
+    private EnemyController enemycontroller;
     private Cells[,] state; //Esta es una matriz de objetos "Cells" y representa el estado actual de las celdas en el juego
 
     //awake se ejecuta antes del primer frame al iniciar el juego, es útil para inicializar componentes como rigidbody, colliders ia, 
@@ -25,6 +32,9 @@ public class Game : MonoBehaviour
         //Esta cosa obtiene la referencia al script "Board" mediante el método "GetComponentInChildren". porque el script pertenece a el hijo 
         // Del Objeto que tiene el tilemap, por eso es el hijo
         board = GetComponentInChildren<Board>();
+        //players = GameObject.FindWithTag("Player");
+        //Instantiate(player, new Vector2(0,0), player.transform.rotation);
+
 
     }
 
@@ -32,6 +42,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
         NewGame();
     }
 
@@ -70,39 +81,19 @@ public class Game : MonoBehaviour
     //Genera los enemigos
     private void GenerateEnemies()
     {
-        for (int i = 0; i < enemieCount; i++)
-        {
+        int generatedEnemies = 0;
 
+        while (generatedEnemies < enemieCount)
+        {
             int x = Random.Range(0, width);
             int y = Random.Range(0, height);
 
-            while (state[x, y].type == Cells.Type.Enemy)
+            if (state[x, y].type != Cells.Type.Enemy)
             {
-                x++;
-                if (x >= width)
-                {
-                    x = 0;
-                    y++;
-                }
-                if (y >= height)
-                {
-                    y = 0;
-                }
+                state[x, y].type = Cells.Type.Enemy;
+                generatedEnemies++;
             }
-            state[x, y].type = Cells.Type.Enemy;
-            //state[x, y].revealed = true;
-
-
-
-
-
-
-
-
-
-
         }
-
     }
     // Este método genera los números en el tablero que indican la cantidad de minas adyacentes a una celda vacía.
     // Utiliza bucles anidados para recorrer todas las celdas del tablero. Si la celda es un enemigo, se omite.
@@ -183,10 +174,17 @@ public class Game : MonoBehaviour
     private void Reveal()
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
         Vector3Int cellPosition = board.tilemap.WorldToCell(worldPosition);
         Cells cell = GetCell(cellPosition.x, cellPosition.y);
-
-        if (cell.type == Cells.Type.Invalid || cell.revealed)
+        playerPosition = player.transform.position;
+        distanceToPlayer = Vector3.Distance(playerPosition, cell.position );
+        //|| distanceToPlayer > revealDistance
+       
+        Cells.Type cellType = cell.type;
+        
+        int random=Random.Range(1, 9);
+        if (cell.type == Cells.Type.Invalid || cell.revealed  )
         {
             return;
         }
@@ -194,6 +192,10 @@ public class Game : MonoBehaviour
         {
             case Cells.Type.Enemy:
                 Explode(cell);
+                var enemyPre = RandomEnemy();
+                Instantiate(enemyPre, cell.position + new Vector3(0.5f,0.5f,0), enemyPre.transform.rotation) ;
+           
+                
                 break;
 
             case Cells.Type.Empty:
@@ -260,10 +262,10 @@ public class Game : MonoBehaviour
     //Para ver si la celda explotó
     private void Explode(Cells cell)
     {
-       
+        
 
         cell.revealed = true;
-        cell.exploted = true;
+        
         
     }
 
@@ -281,6 +283,19 @@ public class Game : MonoBehaviour
         
     
     }
+    private GameObject RandomEnemy()
+    {
 
-  
+        int randomIndex = Random.Range(0, listEnemies.Count);
+        return listEnemies[randomIndex];
+    }
+    public bool CheckClickedEnemy(GameObject enemy)
+    {
+        
+
+        return listEnemies.Contains(enemy);
+        
+    }
+
+
 }
