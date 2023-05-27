@@ -15,11 +15,11 @@ public struct Cells
         Number,
         Time,
         
+        
     }
-
-    public Type type; //Esta es una variable pública de tipo "Type" que representa el tipo de la celda.
     public Vector3Int position; //Almacena el número asociado a la celda
+    public Type type; //Esta es una variable pública de tipo "Type" que representa el tipo de la celda.
     public int number; // Almacena el número asociado a la celda.Este número puede representar la cantidad de minas adyacentes a la celda.
     public bool revealed; //Sirve para saber si la celda ya fue revelada
-    public bool exploted; //Sirve para saber si la celda explotó 
+    
 }

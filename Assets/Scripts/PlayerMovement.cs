@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float speed = 1f;
+    private float speed = 6f;
     private float horizontal;
     private float vertical;
-    
+    private float healt = 100;
+    private float potionCount;
+    public GameObject potion;
+    private float totalLife=100;
     // Update is called once per frame
     private void Awake()
     {
@@ -31,9 +34,20 @@ public class PlayerMovement : MonoBehaviour
         // Actualiza la posición del personaje
         transform.position = newPosition;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject== potion)
+        {
+            
+            potionCount++;
 
-
+            
+            potion.SetActive(false);
+        }
+    }
 }
+
+
 // Se usa para revelar una celda en el tablero.
 // Obtiene la posición del mouse en el mundo y la convierte en una posición de celda utilizando el componente "Tilemap" del tablero.
 // Luego, obtiene la celda correspondiente a esa posición utilizando el método "GetCell".
