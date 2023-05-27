@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Pathfinding;
 public class EnemyController : MonoBehaviour
 {
     public string targetTag = "Player";  // Tag del personaje que el enemigo debe perseguir
@@ -12,20 +12,66 @@ public class EnemyController : MonoBehaviour
     private Transform target;
     private Game game;
     private int currentLifePlayer;
-    private int totalLifePlayer=8;
-    public GameObject player;
-
-
-
-
+    private int totalLifePlayer = 8;
+    //public GameObject player;
+    private AIDestinationSetter targ;
+    Seeker seeker;
+    Rigidbody2D rb;
+    Path path;
+    int currentWayPoint = 0;
+    bool reachedEndOfPath = false;
     private void Start()
     {
         currentHealt = initialHealt;
         target = GameObject.FindGameObjectWithTag(targetTag).transform;
+        targ = GetComponent<AIDestinationSetter>();
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
 
-
+        InvokeRepeating("UpdatePath", 0f, .5f);
+        
 
     }
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(rb.position, target.position, OnpathComplete);
+        }
+        
+    }
+    private void Update()
+    {
+        if (path == null)
+        {
+            return;
+        }
+        if (currentWayPoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else 
+        {
+            reachedEndOfPath = true;
+        }
+        Vector2 direction =((Vector2) path.vectorPath[currentWayPoint] - rb.position).normalized;
+        Vector2 force = direction * +moveSpeed * Time.deltaTime;
+        rb.AddForce(force);
+    }
+
+    void OnpathComplete(Path p)
+    {
+        if (!p.error)
+        {
+
+            path = p;
+            currentWayPoint = 0;
+        }
+
+        
+    }
+
     public void TakeDamage(int damageAmount)
     {
         currentHealt -= damageAmount;
@@ -34,45 +80,6 @@ public class EnemyController : MonoBehaviour
         {
             
             gameObject.SetActive(false);
-        }
-    }
-
-
-    private void Update()
-    {
-
-
-        if (target != null)
-        {
-            // Calcula la dirección hacia el personaje
-            Vector2 direction = (target.position - transform.position).normalized;
-
-            // Mueve el enemigo en la dirección del personaje
-
-
-            if (Vector2.Distance(transform.position, target.position) <= 0.1f)
-            {
-                transform.Translate(direction * 0 * Time.deltaTime);
-                
-
-            }
-            else
-            {
-                transform.Translate(direction * moveSpeed * Time.deltaTime);
-                
-                currentLifePlayer = totalLifePlayer - damagePerEnemy;
-                if (player != null && currentLifePlayer <= 0)
-                {
-                    player.SetActive(false);
-                }
-                
-
-            }
-
-
-            //si llega a donde está el personaje:
-
-
         }
     }
 

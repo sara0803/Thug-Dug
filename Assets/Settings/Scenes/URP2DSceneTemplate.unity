@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070a86bccef36314ca409ce32029dbb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 40
-  height: 40
+  width: 20
+  height: 20
   enemieCount: 100
   revealDistance: 5
   player: {fileID: 883177576}
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+tamPG3dgIAADEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMly4jAQ/RVK54GyWYowtxmHkDkkUGFSufgirDZWIUsuLWFJ8e/Tkm3sMFyQ3+vl9VPbX4RLU0FmlV5pzl4UA/JzQPyZ/Bh05DOc6F7JLb9AG/PBmS18EA0xb9RyhXjs04wqwWqe/ZJ74YMjBJ3kudLlku0hUcYahHMqDCCllfXZEqGvATnh33DhU854Gs/96YKnRTS44jEDaUH3QqPRLPK/xWza5ozi6TiezyaT5TCeNOnD2SiExaGKk5mgZQXMj9QVix+aEnEdJnHYJsIPlikhuGmUEnuughMJrYzDOTGAcYqTB3nxyHcugO8L6zX109d5bsA2xmh6fuQaLazrkt+q9rWk5lAr+6TCBRuDprrky3/ssJaca1U+t13jyHewBc8Ob/ScUWN7tvfhx57wYM+RigPdCfgoQL6qlVZOMiStdj7VGRg/do+3wZICskOH11LvQFd1fre33N6xn+EaZj8lgpc7T42mNbAVKvgdVgM03swfFBwWxzQlEPUq3g38pfv+hjXEE9fGItVMKb28nXLah5Jl8MxP42yitIQAN6IrkFTY8wbL2PsLvON6be+YJ+rfpaZ5w7WvyF1KgLv4KLqjNup4uyxTqOMLmGLtrOASOtGeeEWfEiVlvV/mO+mztk7nNOtl7R1n3zeLsGg3j8fT2TjKFvliFw9pTPPFw5w+jHeTGTIkrB6XOCYVm1pn4w5emuyKS1yz9gszWGlahVVnmh5X/FKqnj4uc7XNNIBc1xVahwxobIIvJVsyjv5swVouw3WTr5QIlR2ApbdCaZh0ebKapl2VlFT8U1mPpCQJn5SUePi2yhsNnxyOvnlb7Equ/wBQSwMEFAAACAgAAJif6zf6xSFsAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKKQZK5oZGJqZFBsmWaZZKhbqJhYpqlhXmihVGSsSlQRikWqL6ksiDVLzE3FaInILEkIy0zLyUzL13PvSgzxR1ktFJsLQBQSwECLQAUAAAICAAAmJ/rWpjxt3YCAAAxBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAmJ/rN/rFIWwAAAB4AAAACQAkAAAAAAAAAAAAAADDAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHoDAAAAAA==
+    dataString: UEsDBBQAAAgIAACYn+svMhSXbAIAACcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty2jAU/RVG68LYhJS4u9YhpAsSJrSTjTfCusYaZMmjB49k+PdeyTZ2KBukc+7j3If8Sbg0NeRW6aXmbKUYkB8j4s/k26gnn+FEd0pu+Ad0Nu+c2dIb0WDzRi1XiMfezagKrOb5T7kT3jhC0EleKF0t2A5SZaxBuKDCAFJaWe8tEfockRP+jRPvcsbTdO5PH3hKotEFjzlIC7o3nU9mCf6+t/bJxN+Sees0njX3JPg6mQta1cB8IX2Iu1mXrDGTWGJr4cvJlRDctPqIPdeh/pTWxmF1aMA4xXqDqHhyh0AJfFdaH3Do/loUBmzbDk3Pj1xj45q45JdqullRs2+UHahwoXlBUxNy9R87jgNdaFU9d1njyGewJc/3b/ScU2MHzR7CjwPhoT1HKvZ0K+C9BPmillo5yZC02nlXZ2D62F+vhaUl5Pseb6TegK7u+93Ntpusr+ESaj+lgldbT01mDbARKvQ7LARonMxvFBzWxbQhEPUq/hr4Q3fDvWqJJ66NRaqtUnp5W+W0NyWL0DNfjbOp0hIC3IquQVJhz2sMY28HeMMN0t4wT9S/oDZ5y3UP48YlwL19FN1Qa3W8DsuU6rgCU746K7iEXrQnXrBPqZKy2S/zlfReG6cLmg+8do6zr5tFWLSdx9PZ/TTKkyLZxmMa0yJ5mNOH6fbuHhkSVo9LLJOKdaOz7Q4OTfbBJa5Z910ZLTWtw6ozTY9L/lGpgT4uC7XJNYB8bSJ0HTKgMQk+SrZgHPuzAWu5DOMmnxkRKt8Dy66BslDp4mQ1zfooGan5QVmPZCQNH5KMePi6ymsNBw5Hn7wLdiGXf1BLAwQUAAAICAAAmJ/rN/rFIWwAAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UopBkrmhkYmpkUGyZZplkqFuomFimqWFeaKFUZKxKVBGKRaovqSyINUvMTcVoicgsSQjLTMvJTMvXc+9KDPFHWS0UmwtAFBLAQItABQAAAgIAACYn+svMhSXbAIAACcFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+s3+sUhbAAAAHgAAAAJACQAAAAAAAAAAAAAALkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAcAMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -568,7 +568,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.33962262, g: 0.1925349, b: 0.03652543, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -585,7 +585,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.57
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -609,7 +609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628675902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.46930182, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -715,14 +715,14 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.5
+  m_ScreenX: 0.537
   m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
+  m_SoftZoneWidth: 0.815
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
   m_BiasY: 0
@@ -760,6 +760,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 648133462441200671, guid: 400fd61f2e964074ea85459605a8aa96, type: 3}
   m_PrefabInstance: {fileID: 648133461696984179}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &883177585
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883177576}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &883177586
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883177576}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.016025841, y: -0.28846416}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.875, y: 1.6875}
+    newSize: {x: 1.875, y: 1.6875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7211436, y: 0.6618497}
+  m_EdgeRadius: 0
+--- !u!114 &883177587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883177576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c233888146f43d4dba62ab158537f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &922151833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1081,7 @@ MonoBehaviour:
   m_Follow: {fileID: 883177580}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 3.57
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1046,7 +1105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002742255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.46930182, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

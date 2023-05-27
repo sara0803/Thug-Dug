@@ -61,7 +61,7 @@ public class Board : MonoBehaviour
                     Instantiate(soul, soulPosition, soul.transform.rotation);
                     //Instantiate(soul, cell.position + new Vector3(0.5f, 0, 0), soul.transform.rotation);
                 }
-                if (typeoftyle == tileNum3)
+                if (typeoftyle == tileNum4)
                 {
                     Vector3 potpos = tilemap.GetCellCenterWorld(cell.position);
                     Instantiate(potion, potpos, potion.transform.rotation);

@@ -9,12 +9,20 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     private float healt = 100;
     private float potionCount;
-    public GameObject potion;
     private float totalLife=100;
+    Rigidbody2D rb;
     // Update is called once per frame
+    /*
+                     
+        currentLifePlayer = totalLifePlayer - damagePerEnemy;
+        if (player != null && currentLifePlayer <= 0)
+        {
+            player.SetActive(false);
+        }
+                */
     private void Awake()
     {
-       
+        rb = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
@@ -25,24 +33,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Calcula el desplazamiento horizontal y vertical
-        Vector2 movement = new Vector2(horizontal * speed * Time.fixedDeltaTime, vertical * speed * Time.fixedDeltaTime);
-
-        // Calcula la nueva posición del personaje
-        Vector2 newPosition = (Vector2)transform.position + movement;
-
-        // Actualiza la posición del personaje
-        transform.position = newPosition;
+        Vector2 direction = new Vector2(horizontal, vertical);
+        direction.Normalize();
+        rb.velocity = direction * speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject== potion)
+
+        Debug.Log("HMMMM:"+ collision.gameObject.name);
+        if (collision.CompareTag("Potion"))
         {
             
             potionCount++;
-
+            collision.gameObject.SetActive(false);
             
-            potion.SetActive(false);
+            
         }
     }
 }
