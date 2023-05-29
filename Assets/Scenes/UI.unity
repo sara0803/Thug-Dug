@@ -215,7 +215,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fc51bfdd31a054bb1a39fc732efd1bec, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.164
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1108,7 +1108,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a5a6ea662e3524cf0aaa4122642532c5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.225
   m_Pitch: 1.1
   Loop: 1
@@ -1253,8 +1253,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BACK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 892178461}
   - component: {fileID: 892178460}
   m_Layer: 5
-  m_Name: Angel
+  m_Name: Soul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1656,7 +1656,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6812436413751847659, guid: efef9d7769d7e1c4fbf765974d26533c, type: 3}
+  m_Sprite: {fileID: 8660488064105803115, guid: efef9d7769d7e1c4fbf765974d26533c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1810,8 +1810,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BACK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1979,7 +1979,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5317d65839bb24ccea058365e6d2e74b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.134
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2485,8 +2485,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 199, y: 350}
-  m_SizeDelta: {x: 961.945, y: 171.65503}
+  m_AnchoredPosition: {x: 254, y: 298}
+  m_SizeDelta: {x: 1097.098, y: 138.504}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1453671710
 MonoBehaviour:
@@ -2571,7 +2571,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -52.465088, y: 0, z: -93.9895, w: 12.367004}
+  m_margin: {x: -0.97845465, y: 0.81282437, z: 0.40271002, w: -0.01850133}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2620,8 +2620,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -292, y: -256}
-  m_SizeDelta: {x: 1014.772, y: 615.886}
+  m_AnchoredPosition: {x: -333.025, y: -232}
+  m_SizeDelta: {x: 932.723, y: 675.828}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1535264785
 MonoBehaviour:
@@ -2643,19 +2643,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SAVE LOST SOULS USING:
+  m_text: 'SAVE LOST SOULS LIKE THIS ONTHE RIGHT
 
 
-    A, S, D, W TO MOVE IT!
+    USE A, S, D, W TO MOVE IT,
 
-    SPACE BAR TO
-    ATTACK
+    USE
+    LEFT CLICK TO DISCOVER SQUARES!
 
 
-    TIME IS RUNNING, GO FAST AND GET MANY SOULS AS YOU CAN!'
+    TIME IS RUNNING, GO FAST AND GET MANY SOULS
+    AS YOU CAN!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2679,10 +2680,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
+  m_fontSize: 59.1
   m_fontSizeBase: 65
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 33
@@ -2715,7 +2716,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.09658442, y: 0, z: 2.3792686, w: -2.0405273}
+  m_margin: {x: 4.5918922, y: 0, z: 0.03503055, w: -2.0405273}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2939,7 +2940,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bf4efcf857dd5401fa45c1f79a9c6035, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3193,7 +3194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -348, y: -250}
+  m_AnchoredPosition: {x: -353, y: -231}
   m_SizeDelta: {x: 885.945, y: 677.384}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1931962935
@@ -3234,8 +3235,8 @@ MonoBehaviour:
 
     DANIEL SANCHEZ'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3259,7 +3260,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.6
+  m_fontSize: 59.05
   m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3295,7 +3296,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -2.4436035, y: 0, z: -2.565857, w: -21.298943}
+  m_margin: {x: -2.4436035, y: 0, z: -2.565857, w: -0.20067579}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
