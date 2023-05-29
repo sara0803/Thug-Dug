@@ -1,14 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float vida;
     [SerializeField] private float maximoVida;
     [SerializeField] private BarraVida barraDeVida;
+    [SerializeField] private float tiempoMaximo;
+    [SerializeField] private Slider slider;
 
+    private bool tiempoActivado = false;
+    private float tiempoActual;
     private float speed = 6f;
     private float horizontal;
     private float vertical;
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         barraDeVida.InicializarBarraDeVida(totalLife);
+        ActivarTemporizador();
     }
     void Update()
     {
@@ -66,7 +70,9 @@ public class PlayerMovement : MonoBehaviour
         {
 
             ghostCount++;
+            tiempoActual += Time.deltaTime;
             collision.gameObject.SetActive(false);
+            
 
 
         }
@@ -78,6 +84,37 @@ public class PlayerMovement : MonoBehaviour
         barraDeVida.CambiarVidaActual(totalLife);
 
         
+    }
+    private void CambiarContador()
+    {
+        tiempoActual -= Time.deltaTime;
+        if (tiempoActual >= 0)
+        {
+            slider.value = tiempoActual;
+        }
+        if (tiempoActual <= 0)
+        {
+            Debug.Log("Game Over");
+            CambiarTemporizador (false);
+        }
+    }
+
+    private void CambiarTemporizador(bool estado)
+    {
+        tiempoActivado = estado;
+    }
+
+    public void ActivarTemporizador()
+    {
+        tiempoActual = tiempoMaximo;
+        slider.maxValue = tiempoMaximo;
+        CambiarTemporizador(true);
+
+    }
+
+    public void DesactivarContador()
+    {
+        Camb(false);
     }
 }
 
