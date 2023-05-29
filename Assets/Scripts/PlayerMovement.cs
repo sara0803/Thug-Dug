@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-   
+    [SerializeField] private float vida;
+    [SerializeField] private float maximoVida;
+    [SerializeField] private BarraVida barraDeVida;
+
     private float speed = 6f;
     private float horizontal;
     private float vertical;
@@ -26,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        barraDeVida.InicializarBarraDeVida(totalLife);
     }
     void Update()
     {
@@ -33,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         if (totalLife < 0)
         {
+            SceneManager.LoadScene(2, LoadSceneMode.Additive);
             gameObject.SetActive(false);
         }
 
@@ -69,14 +75,16 @@ public class PlayerMovement : MonoBehaviour
     {
         var damageEnemy = collision.gameObject.GetComponent<EnemyController>().damagePerEnemy;
         totalLife = totalLife - damageEnemy;
+        barraDeVida.CambiarVidaActual(totalLife);
+
         
     }
 }
 
 
 // Se usa para revelar una celda en el tablero.
-// Obtiene la posición del mouse en el mundo y la convierte en una posición de celda utilizando el componente "Tilemap" del tablero.
-// Luego, obtiene la celda correspondiente a esa posición utilizando el método "GetCell".
-// Si la celda es inválida o ya está revelada, no hace nada. Dependiendo del tipo de celda, se realizan diferentes acciones,
-// como explotar descubrir un enemigp, revelar celdas vacías adyacentes o simplemente revelar una celda de color que da pistas sobre cuantos enemigos van a haber.
-// Al final, se actualiza el estado de la celda y se llama al método "Draw" del componente "Board" para actualizar la representación visual del tablero.
+// Obtiene la posiciï¿½n del mouse en el mundo y la convierte en una posiciï¿½n de celda utilizando el componente "Tilemap" del tablero.
+// Luego, obtiene la celda correspondiente a esa posiciï¿½n utilizando el mï¿½todo "GetCell".
+// Si la celda es invï¿½lida o ya estï¿½ revelada, no hace nada. Dependiendo del tipo de celda, se realizan diferentes acciones,
+// como explotar descubrir un enemigp, revelar celdas vacï¿½as adyacentes o simplemente revelar una celda de color que da pistas sobre cuantos enemigos van a haber.
+// Al final, se actualiza el estado de la celda y se llama al mï¿½todo "Draw" del componente "Board" para actualizar la representaciï¿½n visual del tablero.

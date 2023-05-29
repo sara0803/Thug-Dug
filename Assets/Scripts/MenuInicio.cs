@@ -14,4 +14,13 @@ public class MenuInicio : MonoBehaviour
         Debug.Log("Back");
         Application.Quit();
     }
+    public void GameOver(){
+         SceneManager.LoadScene(2);
+    }
+    public void MainMenu(){
+         SceneManager.LoadScene(0);
+    }
+    public void Win(){
+         SceneManager.LoadScene(3);
+    }
 }

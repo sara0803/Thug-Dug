@@ -1,5 +1,6 @@
 using UnityEngine;
 using Pathfinding;
+
 public class EnemyController : MonoBehaviour
 {
     public string targetTag = "Player";  // Tag del personaje que el enemigo debe perseguir
