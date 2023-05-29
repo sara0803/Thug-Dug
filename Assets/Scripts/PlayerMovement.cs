@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using System.Collections;
+using System.Collections.Generic;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float vida;
@@ -11,25 +12,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Slider slider;
 
     private bool tiempoActivado = false;
-    private float tiempoActual;
+    private float tiempoActual; 
     private float speed = 6f;
     private float horizontal;
     private float vertical;
-    private float healt = 100;
+    private float healt = 50;
     
-    private float totalLife=10;
+    private float totalLife=70;
     public int ghostCount;
     public int potionCount;
     Rigidbody2D rb;
-    // Update is called once per frame
-    /*
-                     
-        currentLifePlayer = totalLifePlayer - damagePerEnemy;
-        if (player != null && currentLifePlayer <= 0)
-        {
-            player.SetActive(false);
-        }
-                */
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+        if (tiempoActivado)
+        {
+            CambiarContador();
+        }
         if (totalLife < 0)
         {
             SceneManager.LoadScene(2, LoadSceneMode.Additive);
@@ -63,14 +60,16 @@ public class PlayerMovement : MonoBehaviour
             
             potionCount++;
             collision.gameObject.SetActive(false);
-            
-            
+            tiempoMaximo += 10;
+
+
+
         }
         if (collision.CompareTag("Ghost"))
         {
 
             ghostCount++;
-            tiempoActual += Time.deltaTime;
+            tiempoActual += UnityEngine.Time.deltaTime;
             collision.gameObject.SetActive(false);
             
 
@@ -79,15 +78,19 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var damageEnemy = collision.gameObject.GetComponent<EnemyController>().damagePerEnemy;
-        totalLife = totalLife - damageEnemy;
-        barraDeVida.CambiarVidaActual(totalLife);
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            var damageEnemy = collision.gameObject.GetComponent<EnemyController>().damagePerEnemy;
+            totalLife = totalLife - damageEnemy;
+            barraDeVida.CambiarVidaActual(totalLife);
+        }
+        
 
         
     }
     private void CambiarContador()
     {
-        tiempoActual -= Time.deltaTime;
+        tiempoActual -= UnityEngine.Time.deltaTime;
         if (tiempoActual >= 0)
         {
             slider.value = tiempoActual;
@@ -95,6 +98,8 @@ public class PlayerMovement : MonoBehaviour
         if (tiempoActual <= 0)
         {
             Debug.Log("Game Over");
+            SceneManager.LoadScene(2);
+            barraDeVida.InicializarBarraDeVida(totalLife);
             CambiarTemporizador (false);
         }
     }
@@ -114,8 +119,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void DesactivarContador()
     {
-        Camb(false);
+        CambiarTemporizador(false);
     }
+
 }
 
 

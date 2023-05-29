@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Potion
   - Ghost
+  - Enemy
   layers:
   - Default
   - TransparentFX

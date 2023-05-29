@@ -83,7 +83,7 @@ public class EnemyController : MonoBehaviour
     {
         TakeDamage(damage);
 
-        Debug.Log("OAUHFOUAHODFHAODFHAODSF");
+        
         Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized; 
         Vector2 force =  - 1*(direction) * +moveSpeed*100 ;
         rb.AddForce(force, ForceMode2D.Impulse);

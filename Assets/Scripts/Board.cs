@@ -27,7 +27,7 @@ public class Board : MonoBehaviour
     public GameObject soul;
     private int potionCounter;
     private int ghostCounter;
-    public int ghostinstanciated;
+
     public int potionsInstanciated;
 
 
@@ -55,26 +55,12 @@ public class Board : MonoBehaviour
                 Cells cell = state[x, y];
                 //PrefobstacleDis = cell.position;
                 //Vector3 prefabPosition = tilemap.GetCellCenterWorld(PrefobstacleDis);
-                typeoftyle = GetTile(cell);
+                
                 //Instantiate(Prefobstacle, cell.position + new Vector3(0.5f, 0.5f, 0), Prefobstacle.transform.rotation);
                 tilemap.SetTile(cell.position, GetTile(cell));
-                if (typeoftyle == tileNum2)
-                {
-                    Vector3 soulPosition = tilemap.GetCellCenterWorld(cell.position);
-                    Instantiate(soul, soulPosition, soul.transform.rotation);
-                    ghostinstanciated++;
-                    
 
-                    //Instantiate(soul, cell.position + new Vector3(0.5f, 0, 0), soul.transform.rotation);
-                }
-                if (typeoftyle == tileNum4)
-                {
-                    Vector3 potpos = tilemap.GetCellCenterWorld(cell.position);
-                    Instantiate(potion, potpos, potion.transform.rotation);
-                    potionsInstanciated++;
-   
-
-                }
+                
+                
 
                 
 
@@ -87,7 +73,9 @@ public class Board : MonoBehaviour
     //devuelve la baldosa adecuada para una celda en particular. Si la celda está revelada, se llama al método
     //"GetRevealedTile" para obtener la baldosa correspondiente al tipo de celda. 
     //Si la celda no está revelada, se devuelve la baldosa "tileUnknown".
-    private Tile GetTile(Cells cell)
+
+  
+    public Tile GetTile(Cells cell)
     {
         if (cell.revealed)
         {
@@ -139,12 +127,5 @@ public class Board : MonoBehaviour
 
 
 
-    public int GhostsInstanciated
-    {
-        get { return ghostinstanciated; }
-    }
-    public int PotionsInstanciated
-    {
-        get { return ghostinstanciated; }
-    }
+
 }

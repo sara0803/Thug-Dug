@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Tilemaps;
 //Este script controla la lógica principal del juego
 public class Game : MonoBehaviour
 {
@@ -14,12 +14,15 @@ public class Game : MonoBehaviour
     public float revealDistance=5f;
     private Vector3 playerPosition;
     public GameObject player;
+    public GameObject soul;
+    public GameObject potion;
+    public int ghostinstanciated;
     private Camera cam;
     public List <GameObject> listEnemies;
-    
     private EnemyController enemycontroller;
+    public int ghostInstanciated;
     private Cells[,] state; //Esta es una matriz de objetos "Cells" y representa el estado actual de las celdas en el juego
-
+    public Tilemap tilemap { get; private set; }
     //awake se ejecuta antes del primer frame al iniciar el juego, es útil para inicializar componentes como rigidbody, colliders ia, 
     // todo llo que esté metido dentro del game object, scripts 
     /// <summary>
@@ -124,6 +127,26 @@ public class Game : MonoBehaviour
         }
 
     }
+
+    public int countcell2()
+    {
+        int countcell2 = 0;
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+
+                Cells cell = state[x, y];
+                if (cell.type == Cells.Type.Enemy)
+                {
+                    countcell2++;
+                }   
+            }
+
+        }
+        return countcell2;
+
+    }
     //Este método cuenta el número de minas adyacentes a una celda dada en las posiciones especificadas.
     //Utiliza bucles anidados para recorrer las celdas adyacentes y, si una celda es un enemigo,
     //incrementa el contador y devuelve el contador al final.
@@ -169,8 +192,16 @@ public class Game : MonoBehaviour
     // Obtiene la posición del mouse en el mundo y la convierte en una posición de celda utilizando el componente "Tilemap" del tablero.
     // Luego, obtiene la celda correspondiente a esa posición utilizando el método "GetCell".
     // Si la celda es inválida o ya está revelada, no hace nada. Dependiendo del tipo de celda, se realizan diferentes acciones,
- // como explotar descubrir un enemigp, revelar celdas vacías adyacentes o simplemente revelar una celda de color que da pistas sobre cuantos enemigos van a haber.
+    // como explotar descubrir un enemigp, revelar celdas vacías adyacentes o simplemente revelar una celda de color que da pistas sobre cuantos enemigos van a haber.
     // Al final, se actualiza el estado de la celda y se llama al método "Draw" del componente "Board" para actualizar la representación visual del tablero.
+    public int GhostsInstanciated
+    {
+        get { return ghostinstanciated; }
+    }
+    public int PotionsInstanciated
+    {
+        get { return ghostinstanciated; }
+    }
     private void Reveal()
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -194,13 +225,20 @@ public class Game : MonoBehaviour
                 Explode(cell);
                 var enemyPre = RandomEnemy();
                 Instantiate(enemyPre, cell.position + new Vector3(0.5f,0.5f,0), enemyPre.transform.rotation) ;
-           
-                
+                Instantiate(soul, cell.position, soul.transform.rotation);
+                ghostInstanciated++;
+
+
+
                 break;
 
             case Cells.Type.Empty:
                 Flood(cell);
-               // CheckWinCondition();
+
+                    
+                    
+   
+
                 break;
 
             default:
@@ -216,6 +254,13 @@ public class Game : MonoBehaviour
         cell.revealed = true;
         state[cellPosition.x, cellPosition.y] = cell;
         board.Draw(state);
+        if (cell.number==2)
+        {
+            
+
+
+        }
+        
     }
     // Este método es muy raro y se usa con recursividad se utiliza para revelar las celdas vacías adyacentes a una celda dada.
     // Si la celda ya está revelada o no es una celda vacía se detiene la recursión,
