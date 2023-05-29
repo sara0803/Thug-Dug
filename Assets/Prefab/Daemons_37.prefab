@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2646261634582734398}
   - component: {fileID: -3773111207980984215}
   - component: {fileID: 5028516654004524432}
-  - component: {fileID: 5408082685168121364}
   - component: {fileID: 6410624253890634340}
+  - component: {fileID: 5547051447379524866}
   m_Layer: 0
   m_Name: Daemons_37
   m_TagString: Untagged
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.07297495, y: 0.07601562}
@@ -185,24 +185,6 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &5408082685168121364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5491040230034750563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcd67a7aec72e8a4f9e942954b1c46f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Player
-  moveSpeed: 5
-  damagePerEnemy: 0
-  damage: 0
-  initialHealt: 0
-  name: 
 --- !u!50 &6410624253890634340
 Rigidbody2D:
   serializedVersion: 4
@@ -218,9 +200,27 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1.5
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &5547051447379524866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491040230034750563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd67a7aec72e8a4f9e942954b1c46f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  moveSpeed: 7
+  damagePerEnemy: 10
+  damage: 10
+  initialHealt: 10
+  name: 

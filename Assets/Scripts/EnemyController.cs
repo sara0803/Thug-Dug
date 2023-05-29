@@ -10,11 +10,6 @@ public class EnemyController : MonoBehaviour
     private int currentHealt;
     public string name;
     private Transform target;
-    private Game game;
-    private int currentLifePlayer;
-    private int totalLifePlayer = 8;
-    //public GameObject player;
-    private AIDestinationSetter targ;
     Seeker seeker;
     Rigidbody2D rb;
     Path path;
@@ -24,7 +19,7 @@ public class EnemyController : MonoBehaviour
     {
         currentHealt = initialHealt;
         target = GameObject.FindGameObjectWithTag(targetTag).transform;
-        targ = GetComponent<AIDestinationSetter>();
+
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -37,6 +32,7 @@ public class EnemyController : MonoBehaviour
         if (seeker.IsDone())
         {
             seeker.StartPath(rb.position, target.position, OnpathComplete);
+            
         }
         
     }
@@ -55,11 +51,10 @@ public class EnemyController : MonoBehaviour
         {
             reachedEndOfPath = true;
         }
-        Vector2 direction =((Vector2) path.vectorPath[currentWayPoint] - rb.position).normalized;
-        Vector2 force = direction * +moveSpeed * Time.deltaTime;
-        rb.AddForce(force);
-    }
 
+
+    }
+   
     void OnpathComplete(Path p)
     {
         if (!p.error)
@@ -86,6 +81,12 @@ public class EnemyController : MonoBehaviour
     private void OnMouseDown()
     {
         TakeDamage(damage);
+
+        Debug.Log("OAUHFOUAHODFHAODFHAODSF");
+        Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized; 
+        Vector2 force =  - 1*(direction) * +moveSpeed*100 ;
+        rb.AddForce(force, ForceMode2D.Impulse);
+        
     }
 
 }

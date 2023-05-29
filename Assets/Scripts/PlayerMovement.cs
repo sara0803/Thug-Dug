@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+   
     private float speed = 6f;
     private float horizontal;
     private float vertical;
     private float healt = 100;
-    private float potionCount;
-    private float totalLife=100;
+    
+    private float totalLife=10;
+    public int ghostCount;
+    public int potionCount;
     Rigidbody2D rb;
     // Update is called once per frame
     /*
@@ -28,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+        if (totalLife < 0)
+        {
+            gameObject.SetActive(false);
+        }
 
     }
 
@@ -40,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log("HMMMM:"+ collision.gameObject.name);
+       
         if (collision.CompareTag("Potion"))
         {
             
@@ -49,6 +56,20 @@ public class PlayerMovement : MonoBehaviour
             
             
         }
+        if (collision.CompareTag("Ghost"))
+        {
+
+            ghostCount++;
+            collision.gameObject.SetActive(false);
+
+
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var damageEnemy = collision.gameObject.GetComponent<EnemyController>().damagePerEnemy;
+        totalLife = totalLife - damageEnemy;
+        
     }
 }
 

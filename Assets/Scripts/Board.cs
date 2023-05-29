@@ -25,7 +25,10 @@ public class Board : MonoBehaviour
     private Tile typeoftyle;
     public GameObject potion;
     public GameObject soul;
-   
+    private int potionCounter;
+    private int ghostCounter;
+    public int ghostinstanciated;
+    public int potionsInstanciated;
 
 
 
@@ -59,13 +62,17 @@ public class Board : MonoBehaviour
                 {
                     Vector3 soulPosition = tilemap.GetCellCenterWorld(cell.position);
                     Instantiate(soul, soulPosition, soul.transform.rotation);
+                    ghostinstanciated++;
+                    
+
                     //Instantiate(soul, cell.position + new Vector3(0.5f, 0, 0), soul.transform.rotation);
                 }
                 if (typeoftyle == tileNum4)
                 {
                     Vector3 potpos = tilemap.GetCellCenterWorld(cell.position);
                     Instantiate(potion, potpos, potion.transform.rotation);
-                    
+                    potionsInstanciated++;
+   
 
                 }
 
@@ -128,5 +135,16 @@ public class Board : MonoBehaviour
             default: return null;
 
         }
+    }
+
+
+
+    public int GhostsInstanciated
+    {
+        get { return ghostinstanciated; }
+    }
+    public int PotionsInstanciated
+    {
+        get { return ghostinstanciated; }
     }
 }
