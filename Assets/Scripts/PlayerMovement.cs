@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float tiempoMaximo;
     [SerializeField] private Slider slider;
 
+    Animator animator;
     private bool tiempoActivado = false;
-    private float tiempoActual; 
+    public float tiempoActual; 
     private float speed = 6f;
     private float horizontal;
     private float vertical;
     private float healt = 50;
+    public int sceneplayer;
     
     private float totalLife=70;
     public int ghostCount;
@@ -25,22 +27,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         barraDeVida.InicializarBarraDeVida(totalLife);
-        ActivarTemporizador();
+        tiempoActual = tiempoMaximo;
+        slider.maxValue = tiempoMaximo;
     }
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-        if (tiempoActivado)
-        {
-            CambiarContador();
-        }
+    
+        
         if (totalLife < 0)
         {
-            SceneManager.LoadScene(2, LoadSceneMode.Additive);
             gameObject.SetActive(false);
+            SceneManager.LoadScene(8);
+            
+        }
+        tiempoActual -= UnityEngine.Time.deltaTime;
+             
+        slider.value = tiempoActual;
+        
+        if (tiempoActual <= 0)
+        {
+            barraDeVida.InicializarBarraDeVida(totalLife);
+      
+            SceneManager.LoadScene(8);
+
         }
 
     }
@@ -69,58 +83,45 @@ public class PlayerMovement : MonoBehaviour
         {
 
             ghostCount++;
-            tiempoActual += UnityEngine.Time.deltaTime;
             collision.gameObject.SetActive(false);
             
 
 
         }
+        if (collision.CompareTag("Potion") )
+        {
+
+            potionCount++;
+            
+            tiempoActual= (tiempoActual+5);
+            if (tiempoActual >= tiempoMaximo)
+            {
+                tiempoActual = tiempoMaximo;
+            }
+            collision.gameObject.SetActive(false);
+                   
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             var damageEnemy = collision.gameObject.GetComponent<EnemyController>().damagePerEnemy;
             totalLife = totalLife - damageEnemy;
+            animator.SetTrigger("Attack");
             barraDeVida.CambiarVidaActual(totalLife);
         }
         
 
         
     }
-    private void CambiarContador()
-    {
-        tiempoActual -= UnityEngine.Time.deltaTime;
-        if (tiempoActual >= 0)
-        {
-            slider.value = tiempoActual;
-        }
-        if (tiempoActual <= 0)
-        {
-            Debug.Log("Game Over");
-            SceneManager.LoadScene(2);
-            barraDeVida.InicializarBarraDeVida(totalLife);
-            CambiarTemporizador (false);
-        }
-    }
 
-    private void CambiarTemporizador(bool estado)
-    {
-        tiempoActivado = estado;
-    }
 
-    public void ActivarTemporizador()
-    {
-        tiempoActual = tiempoMaximo;
-        slider.maxValue = tiempoMaximo;
-        CambiarTemporizador(true);
 
-    }
 
-    public void DesactivarContador()
-    {
-        CambiarTemporizador(false);
-    }
+
+
+
 
 }
 

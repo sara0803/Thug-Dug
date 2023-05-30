@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BarraVida barraDeVida;
     private int cant;
     private int ghostIns;
+    public int sceneP;
 
     // Start is called before the first frame update
     void Start()
@@ -28,14 +29,18 @@ public class GameManager : MonoBehaviour
     {
         ghostIns = game.ghostInstanciated;
         int numGhostColl = playermovement.ghostCount;
-        Debug.Log("RECOLECTADOS" + numGhostColl);
-        Debug.Log("INSTA" + cant);
+ 
 
         //Debug.Log(numGhostsInst+ " "+ numGhostColl);
         if ((cant == numGhostColl) && (cant!=0) && (numGhostColl!=0) )
         {
-            print("HAZ GANAO");
-            SceneManager.LoadScene(3);
+            
+            if (sceneP == -1)
+            {
+                SceneManager.LoadScene(7);
+            }
+            int nextLevel = sceneP + 1;
+            SceneManager.LoadScene(nextLevel);
             
 
 

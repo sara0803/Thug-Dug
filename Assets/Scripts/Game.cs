@@ -147,6 +147,7 @@ public class Game : MonoBehaviour
         return countcell2;
 
     }
+
     //Este método cuenta el número de minas adyacentes a una celda dada en las posiciones especificadas.
     //Utiliza bucles anidados para recorrer las celdas adyacentes y, si una celda es un enemigo,
     //incrementa el contador y devuelve el contador al final.
@@ -202,6 +203,7 @@ public class Game : MonoBehaviour
     {
         get { return ghostinstanciated; }
     }
+  
     private void Reveal()
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -234,18 +236,33 @@ public class Game : MonoBehaviour
 
             case Cells.Type.Empty:
                 Flood(cell);
+                int count = 0; 
+                
 
-                    
-                    
-   
+                if (count % 2 == 0) 
+                {
+                    int cantidadPociones = 1; 
+
+                    for (int i = 0; i < cantidadPociones; i++)
+                    {
+                        Instantiate(potion, cell.position, potion.transform.rotation);
+                        count++; 
+                    }
+                }
+
+
+
+
 
                 break;
 
             default:
                 cell.revealed = true;
                 state[cellPosition.x, cellPosition.y] = cell;
-                //CheckWinCondition();
-                break;
+                
+
+                    //CheckWinCondition();
+                    break;
         }
         if (cell.type == Cells.Type.Empty)
         {
@@ -254,14 +271,11 @@ public class Game : MonoBehaviour
         cell.revealed = true;
         state[cellPosition.x, cellPosition.y] = cell;
         board.Draw(state);
-        if (cell.number==2)
-        {
-            
 
-
-        }
         
     }
+
+
     // Este método es muy raro y se usa con recursividad se utiliza para revelar las celdas vacías adyacentes a una celda dada.
     // Si la celda ya está revelada o no es una celda vacía se detiene la recursión,
     // De lo contrario, se revela la celda, se actualiza su estado en la matriz "state" y se llama a sí misma para las celdas adyacentes.
@@ -314,20 +328,8 @@ public class Game : MonoBehaviour
         
     }
 
-    //Este método se utiliza para verificar si se el jugador ha ganado.
-     //Pero, está incompleto por ahora...
-    private void checkWinCondition()
-    {
-        
-            
-                // -----COMPLETAR ESTO DESPUÉS------
-                //SI EL JUGADOR TIENE LIFE>0 Y HA RECOLECTADO TODOS LOS ITEMS WIN=TRUE
-                //GAME OVER==TRUE;
-            
-        
-        
-    
-    }
+
+
     private GameObject RandomEnemy()
     {
 

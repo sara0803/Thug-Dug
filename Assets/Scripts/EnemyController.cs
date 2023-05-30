@@ -1,6 +1,6 @@
 using UnityEngine;
 using Pathfinding;
-
+using System.Collections;
 public class EnemyController : MonoBehaviour
 {
     public string targetTag = "Player";  // Tag del personaje que el enemigo debe perseguir
@@ -16,16 +16,22 @@ public class EnemyController : MonoBehaviour
     Path path;
     int currentWayPoint = 0;
     bool reachedEndOfPath = false;
+    Animator animator;
+    public AudioSource playerAudio;
+    public AudioClip hitSound;
     private void Start()
     {
         currentHealt = initialHealt;
         target = GameObject.FindGameObjectWithTag(targetTag).transform;
-
+        playerAudio = GetComponent<AudioSource>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         InvokeRepeating("UpdatePath", 0f, .5f);
         
+
+
 
     }
     void UpdatePath()
@@ -71,6 +77,11 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealt -= damageAmount;
+        if (animator!=null)
+        {
+            animator.SetTrigger("Attack");
+            StartCoroutine(TimeWait());
+        }
 
         if (currentHealt <= 0)
         {
@@ -82,12 +93,17 @@ public class EnemyController : MonoBehaviour
     private void OnMouseDown()
     {
         TakeDamage(damage);
+        
 
-        
-        Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized; 
-        Vector2 force =  - 1*(direction) * +moveSpeed*100 ;
-        rb.AddForce(force, ForceMode2D.Impulse);
-        
+
+
+
+    }
+    IEnumerator TimeWait()
+    {
+
+        playerAudio.PlayOneShot(hitSound, 1.0f);
+        yield return new WaitForSeconds(3.0f);
     }
 
 }

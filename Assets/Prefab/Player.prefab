@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 883177585}
   - component: {fileID: 883177586}
   - component: {fileID: 883177587}
+  - component: {fileID: 883177588}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -146,5 +147,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c233888146f43d4dba62ab158537f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vida: 100
+  maximoVida: 100
+  barraDeVida: {fileID: 0}
+  tiempoMaximo: 70
+  slider: {fileID: 0}
   ghostCount: 0
   potionCount: 0
+--- !u!95 &883177588
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648133462441200667}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3794aec19ec78b4488b914e9f6c4ae08, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
