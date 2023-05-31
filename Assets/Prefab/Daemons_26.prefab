@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6664693835617229803}
   - component: {fileID: 295320021918366894}
   - component: {fileID: 1101800915}
-  - component: {fileID: -6594926066081735864}
+  - component: {fileID: -8707580976717099245}
   m_Layer: 0
   m_Name: Daemons_26
   m_TagString: Enemy
@@ -226,6 +226,8 @@ MonoBehaviour:
   damage: 5
   initialHealt: 10
   name: 
+  playerAudio: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: a0ad06352e35d4d60b479fefabdce686, type: 3}
 --- !u!95 &1101800915
 Animator:
   serializedVersion: 5
@@ -247,7 +249,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!82 &-6594926066081735864
+--- !u!82 &-8707580976717099245
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,7 +259,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8f0e34e336172f44bb48cfcd087c4935, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

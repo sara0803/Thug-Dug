@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 5028516654004524432}
   - component: {fileID: 6410624253890634340}
   - component: {fileID: 5547051447379524866}
-  - component: {fileID: 740372121685994012}
+  - component: {fileID: 1668219954}
+  - component: {fileID: 7911181501042087534}
   m_Layer: 0
   m_Name: Daemons_37
   m_TagString: Enemy
@@ -221,13 +222,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Player
   moveSpeed: 7
-  damagePerEnemy: 10
-  damage: 10
-  initialHealt: 10
+  damagePerEnemy: 4
+  damage: 4
+  initialHealt: 20
   name: 
   playerAudio: {fileID: 0}
-  hitSound: {fileID: 0}
---- !u!82 &740372121685994012
+  hitSound: {fileID: 8300000, guid: a0ad06352e35d4d60b479fefabdce686, type: 3}
+--- !u!95 &1668219954
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491040230034750563}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57977d8d8dd9b024d8f7108391ab6c1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &7911181501042087534
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,7 +259,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8f0e34e336172f44bb48cfcd087c4935, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

@@ -20,18 +20,22 @@ public class PlayerMovement : MonoBehaviour
     private float healt = 50;
     public int sceneplayer;
     
+    
     private float totalLife=70;
     public int ghostCount;
     public int potionCount;
+
     Rigidbody2D rb;
 
     private void Awake()
     {
+        
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         barraDeVida.InicializarBarraDeVida(totalLife);
         tiempoActual = tiempoMaximo;
         slider.maxValue = tiempoMaximo;
+
     }
     void Update()
     {
@@ -84,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
             ghostCount++;
             collision.gameObject.SetActive(false);
+
             
 
 

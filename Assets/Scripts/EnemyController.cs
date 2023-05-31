@@ -17,8 +17,9 @@ public class EnemyController : MonoBehaviour
     int currentWayPoint = 0;
     bool reachedEndOfPath = false;
     Animator animator;
-    public AudioSource playerAudio;
+    private AudioSource playerAudio;
     public AudioClip hitSound;
+    private bool soundShot = true;
     private void Start()
     {
         currentHealt = initialHealt;
@@ -77,9 +78,10 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealt -= damageAmount;
-        if (animator!=null)
+        
+        animator.SetTrigger("Attack");
+        if (soundShot)
         {
-            animator.SetTrigger("Attack");
             StartCoroutine(TimeWait());
         }
 
@@ -101,9 +103,10 @@ public class EnemyController : MonoBehaviour
     }
     IEnumerator TimeWait()
     {
-
+        soundShot = false;
         playerAudio.PlayOneShot(hitSound, 1.0f);
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(0.2f);
+        soundShot = true;
     }
 
 }
