@@ -8,16 +8,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float vida;
     [SerializeField] private float maximoVida;
     [SerializeField] private BarraVida barraDeVida;
-    [SerializeField] private float tiempoMaximo;
+    [SerializeField] public float tiempoMaximo;
+    public float copyTime = 0;
+
     [SerializeField] private Slider slider;
 
     Animator animator;
-    private bool tiempoActivado = false;
+    //private bool tiempoActivado = false;
     public float tiempoActual; 
     private float speed = 6f;
     private float horizontal;
     private float vertical;
-    private float healt = 50;
+    //private float healt = 50;
     public int sceneplayer;
     
     
@@ -26,7 +28,13 @@ public class PlayerMovement : MonoBehaviour
     public int potionCount;
 
     Rigidbody2D rb;
+    private AudioSource GhostAudio;
+    public AudioClip ghostSound;
+    private bool ghostSoundBool = true;
 
+
+    public AudioClip potionSound;
+    private bool potionSoundBool = true;
     private void Awake()
     {
         
@@ -34,19 +42,23 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         barraDeVida.InicializarBarraDeVida(totalLife);
         tiempoActual = tiempoMaximo;
+        
         slider.maxValue = tiempoMaximo;
+        GhostAudio = GetComponent<AudioSource>();
+        
 
     }
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-    
-        
+        copyTime = tiempoActual;
+        SingletonScore.Instance.KeepingUpWithTheKardashians(copyTime);
         if (totalLife < 0)
         {
             gameObject.SetActive(false);
-            SceneManager.LoadScene(8);
+            
+            SceneManager.LoadScene(3);
             
         }
         tiempoActual -= UnityEngine.Time.deltaTime;
@@ -57,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             barraDeVida.InicializarBarraDeVida(totalLife);
       
-            SceneManager.LoadScene(8);
+            SceneManager.LoadScene(3);
 
         }
 
@@ -87,9 +99,16 @@ public class PlayerMovement : MonoBehaviour
         {
 
             ghostCount++;
-            collision.gameObject.SetActive(false);
-
             
+            if (ghostSoundBool)
+            {
+
+                StartCoroutine(TimeWait());
+            
+            }
+            collision.gameObject.SetActive(false);
+            //Poner aquí un efecto de aprticula
+
 
 
         }
@@ -97,12 +116,18 @@ public class PlayerMovement : MonoBehaviour
         {
 
             potionCount++;
-            
-            tiempoActual= (tiempoActual+5);
+            if (potionSoundBool)
+            {
+
+                StartCoroutine(TimeWait2());
+
+            }
+            tiempoActual = (tiempoActual+5);
             if (tiempoActual >= tiempoMaximo)
             {
                 tiempoActual = tiempoMaximo;
             }
+
             collision.gameObject.SetActive(false);
                    
         }
@@ -120,6 +145,25 @@ public class PlayerMovement : MonoBehaviour
 
         
     }
+    IEnumerator TimeWait()
+    {
+        ghostSoundBool = false;
+        GhostAudio.PlayOneShot(ghostSound, 1.0f);
+
+        yield return new WaitForSeconds(0.2f);
+        ghostSoundBool = true;
+
+    }
+    IEnumerator TimeWait2()
+    {
+        potionSoundBool = false;
+        GhostAudio.PlayOneShot(potionSound, 1.0f);
+
+        yield return new WaitForSeconds(0.2f);
+        potionSoundBool = true;
+
+    }
+
 
 
 

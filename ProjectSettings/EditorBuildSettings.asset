@@ -12,21 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/God.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/HistoryMode.unity
-    guid: d2610c8b2dba8814792ae38e969babd1
-  - enabled: 1
-    path: Assets/Scenes/L1.unity
-    guid: 7ad66c61edad45d4b829a283c4a21332
-  - enabled: 1
-    path: Assets/Scenes/L2.unity
-    guid: c2aa24b75afc021469b8df94a011de74
-  - enabled: 1
-    path: Assets/Scenes/L3.unity
-    guid: b4644351fb0ae334e98cccfb95b97ff3
-  - enabled: 1
-    path: Assets/Scenes/L4.unity
-    guid: 61de2249667543f4899d2cbb368c5df1
-  - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: 36937bbd0c91d444ebda1aa4d31f6cfb
   - enabled: 1

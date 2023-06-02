@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,9 +225,9 @@ MonoBehaviour:
   damagePerEnemy: 2
   damage: 2
   initialHealt: 4
-  name: 
-  playerAudio: {fileID: 0}
   hitSound: {fileID: 8300000, guid: a0ad06352e35d4d60b479fefabdce686, type: 3}
+  particleSystem: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
+  particlePrefabParent: {fileID: 3011426883213670701, guid: fa28062527e4a3644bde9f861ef86c94, type: 3}
 --- !u!95 &1443978179
 Animator:
   serializedVersion: 5

@@ -28,10 +28,10 @@ public class MenuInicio : MonoBehaviour
         Application.Quit();
     }
     public void Win(){
-         SceneManager.LoadScene(7);
+         SceneManager.LoadScene(2);
     }
     public void GameOver()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(3);
     }
 }
