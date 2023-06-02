@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         {
             barraDeVida.InicializarBarraDeVida(totalLife);
       
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
 
         }
 

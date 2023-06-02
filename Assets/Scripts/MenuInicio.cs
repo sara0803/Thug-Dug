@@ -16,7 +16,7 @@ public class MenuInicio : MonoBehaviour
     }
     public void History()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
     public void God()
     {
@@ -28,10 +28,10 @@ public class MenuInicio : MonoBehaviour
         Application.Quit();
     }
     public void Win(){
-         SceneManager.LoadScene(2);
+         SceneManager.LoadScene(3);
     }
     public void GameOver()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 }

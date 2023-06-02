@@ -626,8 +626,11 @@ MonoBehaviour:
   board: {fileID: 1312621561}
   game: {fileID: 336286038}
   playermovement: {fileID: 981688660}
-  barraDeVida: {fileID: 643778303}
+  barraDeVida: {fileID: 0}
   sceneP: 2
+  maxTime: 0
+  ban: 0
+  keepNumber: 0
 --- !u!4 &383078444
 Transform:
   m_ObjectHideFlags: 0
@@ -762,6 +765,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3357723103553549696, guid: 71c9a3fc32a9df44abf34f94c41a45ac, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357723103553549696, guid: 71c9a3fc32a9df44abf34f94c41a45ac, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357723103553549696, guid: 71c9a3fc32a9df44abf34f94c41a45ac, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357723103553549696, guid: 71c9a3fc32a9df44abf34f94c41a45ac, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c9a3fc32a9df44abf34f94c41a45ac, type: 3}
 --- !u!1 &464488078
@@ -799,17 +818,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &643778303 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3357723102257347563, guid: 71c9a3fc32a9df44abf34f94c41a45ac, type: 3}
-  m_PrefabInstance: {fileID: 441546907}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7cf4a354f334d88ab96690de0bff74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &839890479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1120,7 @@ PrefabInstance:
     - target: {fileID: 883177587, guid: 400fd61f2e964074ea85459605a8aa96, type: 3}
       propertyPath: barraDeVida
       value: 
-      objectReference: {fileID: 643778303}
+      objectReference: {fileID: 0}
     - target: {fileID: 883177587, guid: 400fd61f2e964074ea85459605a8aa96, type: 3}
       propertyPath: tiempoMaximo
       value: 100
