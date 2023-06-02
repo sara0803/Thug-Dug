@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             
             keepNumber = singletonScore.StopAndCaptureNumber(4);
             record.RecordPrefs(keepNumber);
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
   
 
             //record.RecordPrefs(keepNumber,ban);

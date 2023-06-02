@@ -20,6 +20,7 @@ public class RecordNum : MonoBehaviour
         int minutes = Mathf.FloorToInt(time / 60f);
         int seconds = Mathf.FloorToInt(time % 60f);
         string formattedTime = string.Format("{0:00}:{1:00}", minutes, seconds);
+        print (time);
         return formattedTime;
     }
 }

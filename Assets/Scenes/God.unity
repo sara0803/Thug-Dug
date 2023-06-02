@@ -2427,7 +2427,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1850346531}
-  - component: {fileID: 1850346532}
   m_Layer: 0
   m_Name: ControladorJuego
   m_TagString: Untagged
@@ -2450,30 +2449,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1850346532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850346530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c233888146f43d4dba62ab158537f2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vida: 0
-  maximoVida: 0
-  barraDeVida: {fileID: 0}
-  tiempoMaximo: 0
-  copyTime: 0
-  slider: {fileID: 1542413160}
-  tiempoActual: 0
-  sceneplayer: 0
-  ghostCount: 0
-  potionCount: 0
-  ghostSound: {fileID: 0}
-  potionSound: {fileID: 0}
 --- !u!1 &1890374121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,7 +2578,7 @@ PrefabInstance:
     - target: {fileID: 883177587, guid: 400fd61f2e964074ea85459605a8aa96, type: 3}
       propertyPath: slider
       value: 
-      objectReference: {fileID: 1799820413}
+      objectReference: {fileID: 1542413160}
     - target: {fileID: 883177587, guid: 400fd61f2e964074ea85459605a8aa96, type: 3}
       propertyPath: barraDeVida
       value: 

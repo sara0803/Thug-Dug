@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.SetActive(false);
             
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
             
         }
         tiempoActual -= UnityEngine.Time.deltaTime;
