@@ -5,22 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class MenuInicio : MonoBehaviour
 {
+
+
+    public void MainMenu(){
+         SceneManager.LoadScene(0);
+    }
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void History()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void God()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void Back()
+    {
 
-    public void Back() {
-        Debug.Log("Back");
         Application.Quit();
     }
-    public void GameOver(){
+    public void Win(){
          SceneManager.LoadScene(2);
     }
-    public void MainMenu(){
-         SceneManager.LoadScene(0);
-    }
-    public void Win(){
-         SceneManager.LoadScene(3);
+    public void GameOver()
+    {
+        SceneManager.LoadScene(3);
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using Pathfinding;
-
+using System.Collections;
+using System.Collections.Generic;
 public class EnemyController : MonoBehaviour
 {
     public string targetTag = "Player";  // Tag del personaje que el enemigo debe perseguir
@@ -9,23 +10,34 @@ public class EnemyController : MonoBehaviour
     public int damage;
     public int initialHealt;
     private int currentHealt;
-    public string name;
+    //public string name;
     private Transform target;
     Seeker seeker;
     Rigidbody2D rb;
     Path path;
     int currentWayPoint = 0;
-    bool reachedEndOfPath = false;
+    //bool reachedEndOfPath = false;
+    Animator animator;
+    private AudioSource playerAudio;
+    public AudioClip hitSound;
+    private bool soundShot = true;
+    public ParticleSystem particleSystem;
+    public GameObject particlePrefabParent;
+    //private int firstClick = 0;
     private void Start()
     {
         currentHealt = initialHealt;
         target = GameObject.FindGameObjectWithTag(targetTag).transform;
-
+        playerAudio = GetComponent<AudioSource>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         InvokeRepeating("UpdatePath", 0f, .5f);
-        
+
+       
+
+            
 
     }
     void UpdatePath()
@@ -45,12 +57,12 @@ public class EnemyController : MonoBehaviour
         }
         if (currentWayPoint >= path.vectorPath.Count)
         {
-            reachedEndOfPath = true;
+            //reachedEndOfPath = true;
             return;
         }
         else 
         {
-            reachedEndOfPath = true;
+            //reachedEndOfPath = false;
         }
 
 
@@ -68,26 +80,59 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    public void TakeDamage(int damageAmount)
-    {
-        currentHealt -= damageAmount;
 
-        if (currentHealt <= 0)
-        {
-            
-            gameObject.SetActive(false);
-        }
-    }
 
     private void OnMouseDown()
     {
-        TakeDamage(damage);
 
+        TakeDamage(damage);
         
-        Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - rb.position).normalized; 
-        Vector2 force =  - 1*(direction) * +moveSpeed*100 ;
-        rb.AddForce(force, ForceMode2D.Impulse);
+
+    }
+    IEnumerator TimeWait()
+    {
+        soundShot = false;
+        playerAudio.PlayOneShot(hitSound, 1.0f);
         
+        yield return new WaitForSeconds(0.2f);
+        soundShot = true;
+        if (currentHealt <= 0)
+        {
+            GameObject particleObject = Instantiate(particlePrefabParent, rb.position, Quaternion.identity);
+            ParticleSystem particles = particleObject.GetComponentInChildren<ParticleSystem>();
+            particles.transform.SetParent(transform);  // Establecer el enemigo como padre de las partículas
+            particles.transform.localPosition = Vector3.zero;
+            particles.Play();
+
+            yield return new WaitForSeconds(0.5f);
+            gameObject.SetActive(false);
+            particles.Stop();
+
+        }
+    }
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealt -= damageAmount;
+        
+
+        if (soundShot)
+        {
+            
+            StartCoroutine(TimeWait());
+            
+        }
+        animator.SetTrigger("Attack");
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //animator.SetTrigger("Attacking");
+        }
+
+
+
     }
 
 }
