@@ -53,7 +53,7 @@ public class Record : MonoBehaviour
             
 
         }
-        
+
      
         if ((writeNum < PlayerPrefs.GetFloat("RecordTime", 0f)))
         {
