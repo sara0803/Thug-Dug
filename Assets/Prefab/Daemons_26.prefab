@@ -152,7 +152,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3441800648015620235}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
   m_Name: 
@@ -225,7 +225,7 @@ MonoBehaviour:
   damagePerEnemy: 3
   damage: 3
   initialHealt: 9
-  hitSound: {fileID: 8300000, guid: a0ad06352e35d4d60b479fefabdce686, type: 3}
+  hitSound: {fileID: 8300000, guid: fe0215dae5e1e4e73befd0d5d6720e60, type: 3}
   particleSystem: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
   particlePrefabParent: {fileID: 3011426883213670701, guid: fa28062527e4a3644bde9f861ef86c94, type: 3}
 --- !u!95 &1101800915

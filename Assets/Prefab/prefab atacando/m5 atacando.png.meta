@@ -121,9 +121,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 133
-        width: 126
-        height: 133
+        y: 19
+        width: 18
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 934f7c45fdf6c2e49b65200e515d3834
-      internalID: 1273369306
+      spriteID: b75353e441701fe429621aff34e102be
+      internalID: -1286132134
       vertices: []
       indices: 
       edges: []
@@ -143,8 +143,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 126
-        height: 133
+        width: 18
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d66bd25920580fa4b93e5b232c288c17
-      internalID: -216912058
+      spriteID: 2138c9f153c3c29419faca32a4d29169
+      internalID: 1707416336
       vertices: []
       indices: 
       edges: []
@@ -169,8 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      m5 atacando_0: 1273369306
-      m5 atacando_1: -216912058
+      m5 atacando_0: -1286132134
+      m5 atacando_1: 1707416336
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

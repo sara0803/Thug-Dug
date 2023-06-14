@@ -2580,6 +2580,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1542413160}
     - target: {fileID: 883177587, guid: 400fd61f2e964074ea85459605a8aa96, type: 3}
+      propertyPath: ghostSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 056b3e1831f5944c892911a3c4135fec, type: 3}
+    - target: {fileID: 883177587, guid: 400fd61f2e964074ea85459605a8aa96, type: 3}
       propertyPath: barraDeVida
       value: 
       objectReference: {fileID: 1799820412}
