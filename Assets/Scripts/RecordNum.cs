@@ -23,4 +23,4 @@ public class RecordNum : MonoBehaviour
         print (time);
         return formattedTime;
     }
-lin}
+}
